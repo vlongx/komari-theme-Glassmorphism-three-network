@@ -1,5 +1,7 @@
 # Komari Glassmorphism 三网延迟版
 
+![Komari Glassmorphism 三网延迟版预览](docs/images/preview.png)
+
 本项目转载并二次修改自 [sanrokamlan-prog/komari-theme-Glassmorphism](https://github.com/sanrokamlan-prog/komari-theme-Glassmorphism)。
 
 本仓库仅在原项目基础上增加中国联通、中国电信、中国移动三家运营商的延迟与丢包数据展示，其余主要功能、界面设计和代码均来源于原项目。
@@ -11,8 +13,3 @@
 https://github.com/sanrokamlan-prog/komari-theme-Glassmorphism
 
 本项目继续遵循原项目的 MIT License。
-EOF
-
-git add README.md
-git commit -m "docs: simplify README and credit original project"
-git push
