@@ -1,0 +1,299 @@
+{
+  "name": "Komari Glassmorphism",
+  "short": "Glassmorphism",
+  "description": "A Glassmorphism theme for Komari with China Unicom, China Telecom and China Mobile latency/loss panels",
+  "version": "2.4.0",
+  "author": "sanrokamlan",
+  "url": "https://github.com/sanrokamlan-prog/komari-theme-Glassmorphism",
+  "preview": "preview-v2.0.0.png",
+  "configuration": {
+    "type": "managed",
+    "name": "Glassmorphism 设置",
+    "data": [
+      {
+        "name": "基础设置",
+        "type": "title"
+      },
+      {
+        "key": "themeMode",
+        "name": "默认主题模式",
+        "type": "select",
+        "default": "beijing",
+        "options": "beijing,light,dark",
+        "help": "全站默认主题模式：beijing=按北京时间 07:00-18:59 日间、19:00-06:59 夜间；light=默认浅色；dark=默认深色。访客仍可通过右上角按钮在当前浏览器本机切换自动/浅色/深色。"
+      },
+      {
+        "key": "dataUpdateInterval",
+        "name": "数据更新间隔",
+        "type": "number",
+        "default": 3,
+        "help": "实时数据刷新间隔，单位：秒（建议 1-10 秒）"
+      },
+      {
+        "key": "rpcTransportMode",
+        "name": "RPC 连接模式",
+        "type": "select",
+        "default": "http",
+        "options": "http,websocket",
+        "help": "RPC 默认连接模式，HTTP 兼容性最好；确认反向代理已支持 WebSocket 时可切换为 websocket"
+      },
+      {
+        "key": "defaultViewMode",
+        "name": "默认视图模式",
+        "type": "select",
+        "default": "card",
+        "options": "card,list",
+        "help": "节点列表的默认显示模式"
+      },
+      {
+        "key": "nodeCardSize",
+        "name": "节点卡片尺寸",
+        "type": "select",
+        "default": "compact",
+        "options": "mini,compact,comfortable,large",
+        "help": "首页节点卡片尺寸：mini 为最小高密度卡片，compact 接近当前紧凑布局，comfortable 更宽松，large 为大卡片"
+      },
+      {
+        "name": "首页模块设置",
+        "type": "title"
+      },
+      {
+        "key": "alertEnabled",
+        "name": "启用公告",
+        "type": "switch",
+        "default": false,
+        "help": "在首页显示自定义公告"
+      },
+      {
+        "key": "alertTitle",
+        "name": "公告标题",
+        "type": "string",
+        "default": "",
+        "help": "公告的标题内容"
+      },
+      {
+        "key": "alertContent",
+        "name": "公告内容",
+        "type": "richtext",
+        "default": "",
+        "help": "公告的详细内容（支持简单 Markdown 格式）"
+      },
+      {
+        "key": "stopEarth",
+        "name": "停止地球旋转",
+        "type": "switch",
+        "default": false,
+        "help": "开启后地球默认不自动旋转，用户仍可手动拖拽查看"
+      },
+      {
+        "key": "earthRenderer",
+        "name": "地球样式",
+        "type": "select",
+        "default": "realistic",
+        "options": "realistic,cobe,tiled",
+        "help": "选择首页地球/地图样式：realistic 为真实贴图地球，cobe 为原点阵地球，tiled 为平铺策略地图"
+      },
+      {
+        "key": "hideEarth",
+        "name": "隐藏地球",
+        "type": "switch",
+        "default": false,
+        "help": "隐藏地球后仅显示总览卡片"
+      },
+      {
+        "key": "hideGeneralCard",
+        "name": "隐藏头部",
+        "type": "switch",
+        "default": false,
+        "help": "隐藏地球和总览卡片"
+      },
+      {
+        "key": "visitorInfoEnabled",
+        "name": "显示访客信息",
+        "type": "switch",
+        "default": true,
+        "help": "显示底部访客 IP 条和左下角访客详情卡片"
+      },
+      {
+        "key": "generalCardPreset",
+        "name": "头部卡片方案",
+        "type": "select",
+        "default": "basic",
+        "options": "基础,运维,财务,流量,完整,自定义",
+        "help": "选择主页头部格子的显示方案。基础：默认 8 张，包含在线节点、剩余价值、月费用、流量、实时速度、峰值和到期；运维：加入在线/离线/高负载/预警/连接等；财务：突出即将到期、月费用、年费用；流量：加入实时峰值、上下行最高和流量预警；完整：除温度外全部显示；自定义：使用下方高级自定义项。"
+      },
+      {
+        "key": "generalCardKeys",
+        "name": "高级：自定义头部卡片",
+        "type": "string",
+        "default": "",
+        "help": "仅当“头部卡片方案”选择“自定义”时生效，用英文逗号分隔 key，例如 memory,disk,totalTraffic,uploadSpeed,downloadSpeed。可用 key：memory=内存，disk=硬盘，remainingValue=剩余价值，totalTraffic=累计流量，uploadSpeed=实时上行，downloadSpeed=实时下行，onlineNodes=在线节点，offlineNodes=离线节点，highLoadNodes=高负载，expiringNodes=即将到期，trafficPeak=实时峰值，uploadPeakNode=上行最高，downloadPeakNode=下行最高，trafficWarnings=流量预警，connectionPeakNode=连接峰值，monthlyCost=月费用，yearlyCost=年费用，avgCpu=平均CPU，avgLoad=平均负载，swap=交换内存，processes=进程数，connections=连接数，cpuCores=CPU核心，trafficQuota=流量配额，regionDistribution=地区分布，systemDistribution=系统分布，virtualizationDistribution=虚拟化。"
+      },
+      {
+        "key": "hideAdminEntryWhenLoggedOut",
+        "name": "隐藏后台入口",
+        "type": "switch",
+        "default": false,
+        "help": "未登录时隐藏顶部后台管理入口"
+      },
+      {
+        "key": "hidePriceWhenLoggedOut",
+        "name": "未登录隐藏价格",
+        "type": "switch",
+        "default": false,
+        "help": "未登录时隐藏节点卡片/列表中的价格、剩余价值和费用类卡片；在线天数仍会显示"
+      },
+      {
+        "key": "providerAliases",
+        "name": "厂商自定义别名",
+        "type": "string",
+        "default": "",
+        "help": "每组用分号分隔，格式：厂商名:别名1,别名2。例如 RackNerd:rn,rack nerd;GreenCloudVPS:绿云,gc"
+      },
+      {
+        "key": "disablePageAnimation",
+        "name": "减弱过渡动画",
+        "type": "switch",
+        "default": false,
+        "help": "减少页面过渡动画效果，提升访问速度和响应性"
+      },
+      {
+        "name": "节点与快捷控制",
+        "type": "title"
+      },
+      {
+        "key": "homeQuickControlsEnabled",
+        "name": "显示主页快捷控制",
+        "type": "switch",
+        "default": true,
+        "help": "在节点分组旁显示默认、月成本、总流量、峰值、离线、高负载、即将到期等快捷按钮"
+      },
+      {
+        "key": "homeQuickControlPreset",
+        "name": "快捷控制方案",
+        "type": "select",
+        "default": "完整",
+        "options": "基础,流量,运维,完整,自定义",
+        "help": "选择主页快捷按钮组合。基础：默认、月成本、峰值、离线；流量：默认、总流量、峰值；运维：默认、月成本、离线、高负载、即将到期；完整：默认全部快捷按钮；自定义：使用下方高级自定义项。"
+      },
+      {
+        "key": "homeQuickControlKeys",
+        "name": "高级：自定义快捷按钮",
+        "type": "string",
+        "default": "",
+        "help": "仅当“快捷控制方案”选择“自定义”时生效，用英文逗号分隔 key，例如 default,monthlyCost,totalTraffic,peak,offline。可用 key：default=默认，monthlyCost=月成本，totalTraffic=总流量，upload=上行，download=下行，peak=实时峰值，offline=离线，highLoad=高负载，expiring=即将到期。"
+      },
+      {
+        "key": "nodeListMetadataEnabled",
+        "name": "列表信息栏",
+        "type": "switch",
+        "default": true,
+        "help": "在列表视图显示节点信息栏；关闭后隐藏厂商、地区、ASN 和标签信息列。"
+      },
+      {
+        "key": "nodeListMetadataFields",
+        "name": "列表信息字段",
+        "type": "string",
+        "default": "provider,region,asn",
+        "help": "列表信息栏字段顺序，用英文逗号分隔。默认隐藏城市；如需显示可加入 city。可用 key：provider=厂商，region=地区，city=城市，asn=ASN，tags=自定义标签，group=分组。没有可展示内容时会自动隐藏该行信息。"
+      },
+      {
+        "key": "nodeListCustomTagsVisible",
+        "name": "列表显示自定义标签",
+        "type": "switch",
+        "default": true,
+        "help": "列表信息字段包含 tags 时，是否显示节点自定义标签；无标签节点不会显示空标签。"
+      },
+      {
+        "key": "nodeDetailSectionTabsEnabled",
+        "name": "详情页分区标签页",
+        "type": "switch",
+        "default": false,
+        "help": "默认关闭，保持节点详情页纵向连续展示；开启后按概览、负载、延迟分区显示。"
+      },
+      {
+        "key": "offlineNodesLast",
+        "name": "离线节点置底",
+        "type": "switch",
+        "default": false,
+        "help": "开启后首页默认排序、月成本、总流量、上行、下行、峰值、即将到期等模式都会优先显示在线节点，离线节点排在最后；离线快捷筛选仍只显示离线节点。"
+      },
+      {
+        "key": "homeQuickDefaultControl",
+        "name": "默认快捷模式",
+        "type": "select",
+        "default": "default",
+        "options": "default,monthlyCost,totalTraffic,upload,download,peak,offline,highLoad,expiring",
+        "help": "进入首页时默认使用的节点筛选/排序模式。default=默认，monthlyCost=月成本（按每台机器折算月成本从高到低排序），totalTraffic=总流量，upload=上行，download=下行，peak=实时峰值，offline=离线，highLoad=高负载，expiring=即将到期。"
+      },
+      {
+        "key": "homeHighLoadThreshold",
+        "name": "高负载阈值",
+        "type": "number",
+        "default": 80,
+        "help": "CPU、内存或硬盘占用达到该百分比时归为高负载节点（1-100）"
+      },
+      {
+        "key": "homeTrafficWarningThreshold",
+        "name": "流量预警阈值",
+        "type": "number",
+        "default": 80,
+        "help": "节点流量配额使用率达到该百分比时归为流量预警（1-100）"
+      },
+      {
+        "key": "homeExpiringDays",
+        "name": "即将到期天数",
+        "type": "number",
+        "default": 30,
+        "help": "节点剩余天数小于等于该值时归为即将到期（1-3650）"
+      },
+      {
+        "name": "自定义背景",
+        "type": "title"
+      },
+      {
+        "key": "backgroundEnabled",
+        "name": "启用自定义背景",
+        "type": "switch",
+        "default": false,
+        "help": "启用后可设置自定义图片或视频作为页面背景"
+      },
+      {
+        "key": "backgroundType",
+        "name": "背景类型",
+        "type": "select",
+        "default": "image",
+        "options": "image,video",
+        "help": "选择背景类型：图片或视频"
+      },
+      {
+        "key": "lightBackgroundUrl",
+        "name": "亮色模式背景地址",
+        "type": "string",
+        "default": "",
+        "help": "亮色模式下的背景图片/视频 URL"
+      },
+      {
+        "key": "darkBackgroundUrl",
+        "name": "暗色模式背景地址",
+        "type": "string",
+        "default": "",
+        "help": "暗色模式下的背景图片/视频 URL"
+      },
+      {
+        "key": "backgroundBlur",
+        "name": "背景模糊半径",
+        "type": "number",
+        "default": 0,
+        "help": "背景的高斯模糊半径（单位：px），0 表示不模糊"
+      },
+      {
+        "key": "backgroundOverlay",
+        "name": "背景遮罩强度",
+        "type": "number",
+        "default": 0,
+        "help": "背景遮罩强度（-100 到 100）：负数降低背景透明度，0 表示关闭，正数为黑色遮罩，绝对值越大效果越明显"
+      }
+    ]
+  }
+}

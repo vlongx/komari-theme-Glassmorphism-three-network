@@ -1,0 +1,226 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+  scrollbar-color: var(--ring) transparent;
+  scrollbar-width: thin;
+}
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.141 0.005 285.823);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.141 0.005 285.823);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.21 0.006 285.885);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --warning: oklch(0.768 0.155 70);
+  --warning-foreground: oklch(0.21 0.006 285.885);
+  --success: oklch(0.696 0.17 162.48);
+  --success-foreground: oklch(0.985 0 0);
+  --info: oklch(0.6 0.118 230);
+  --info-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.705 0.015 286.067);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.dark {
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.92 0.004 286.32);
+  --primary-foreground: oklch(0.21 0.006 285.885);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --warning: oklch(0.79 0.16 70);
+  --warning-foreground: oklch(0.141 0.005 285.823);
+  --success: oklch(0.74 0.17 162);
+  --success-foreground: oklch(0.141 0.005 285.823);
+  --info: oklch(0.68 0.13 230);
+  --info-foreground: oklch(0.141 0.005 285.823);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.552 0.016 285.938);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --font-sans: var(--font-sans);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .flex-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ===== 节点卡片毛玻璃 — 亮色透出背景 ===== */
+/* ===== 全局卡片毛玻璃（统一首页和详情页） ===== */
+
+.node-card,
+.bg-card,
+[data-slot='card'] {
+  /* Slightly more translucent background and stronger blur/saturation for a clearer glass effect */
+  background-color: rgb(255 255 255 / 0.62) !important;
+  border: 1px solid rgb(255 255 255 / 0.34) !important;
+  backdrop-filter: blur(18px) saturate(170%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(170%) !important;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.1) !important;
+}
+
+.node-card:hover,
+.bg-card:hover,
+[data-slot='card']:hover {
+  background-color: rgb(255 255 255 / 0.72) !important;
+  box-shadow: 0 10px 36px rgb(0 0 0 / 0.16) !important;
+}
+
+/* ===== 暗色模式 ===== */
+
+.dark .node-card,
+.dark .bg-card,
+.dark [data-slot='card'] {
+  /* Dark mode: keep a translucent glass feel while improving foreground contrast */
+  background-color: rgb(15 15 25 / 0.72) !important;
+  border: 1px solid rgb(255 255 255 / 0.12) !important;
+  box-shadow: 0 6px 28px rgb(0 0 0 / 0.36) !important;
+}
+
+.dark .node-card:hover,
+.dark .bg-card:hover,
+.dark [data-slot='card']:hover {
+  background-color: rgb(15 15 25 / 0.82) !important;
+}
+
+/* ===== Header ===== */
+
+header {
+  background-color: rgb(255 255 255 / 0.55) !important;
+  backdrop-filter: blur(14px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(150%) !important;
+  border-bottom: 1px solid rgb(255 255 255 / 0.3) !important;
+}
+
+.dark header {
+  background-color: rgb(10 10 20 / 0.6) !important;
+  border-bottom: 1px solid rgb(255 255 255 / 0.08) !important;
+}
+
+/* ===== 顶部统计栏 ===== */
+
+.bg-background {
+  background-color: rgb(255 255 255 / 0.55) !important;
+  backdrop-filter: blur(12px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
+}
+
+.dark .bg-background {
+  background-color: rgb(20 20 35 / 0.55) !important;
+}
+
+/* ===== 小组件背景 ===== */
+
+.bg-slate-500\/5 {
+  background-color: rgb(255 255 255 / 0.15) !important;
+}
+
+.dark .bg-slate-500\/5 {
+  background-color: rgb(255 255 255 / 0.05) !important;
+}
