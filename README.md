@@ -1,4 +1,3 @@
-cat > README.md <<'EOF'
 # Komari Glassmorphism 三网延迟版
 
 本项目转载并二次修改自 [sanrokamlan-prog/komari-theme-Glassmorphism](https://github.com/sanrokamlan-prog/komari-theme-Glassmorphism)。
